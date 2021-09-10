@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ReservationATest {
 
     private int nombreDePersonnes;
-    private int capaciteDeLaTable;
     private Outcome outcome;
     private final TableRepository tableRepository = new InMemoryTableRepository();
     private final ReservationRepository reservationRepository = new InMemoryReservationRepository();
@@ -23,7 +22,7 @@ public class ReservationATest {
 
     @Etque("le restaurant contient une table de {string} places")
     public void leRestaurantContientUneTableDePlaces(String capaciteDeLaTableInput) {
-        capaciteDeLaTable = Integer.parseInt(capaciteDeLaTableInput);
+        int capaciteDeLaTable = Integer.parseInt(capaciteDeLaTableInput);
         ((InMemoryTableRepository) tableRepository).clear();
         tableRepository.save(new Table(capaciteDeLaTable));
     }
