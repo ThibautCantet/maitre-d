@@ -15,14 +15,13 @@ public class ReservationATest {
     private final TableRepository tableRepository = new InMemoryTableRepository();
     private final ReservationRepository reservationRepository = new InMemoryReservationRepository();
 
-    @Etantdonné("Une demande de réservation pour {string} personne\\(s)")
-    public void uneDemandeDeRéservationPourPersonneS(String nombreDePersonnesInput) {
-        nombreDePersonnes = Integer.parseInt(nombreDePersonnesInput);
+    @Etantdonné("Une demande de réservation pour {int} personne\\(s)")
+    public void uneDemandeDeRéservationPourPersonneS(int nombreDePersonnes) {
+        this.nombreDePersonnes = nombreDePersonnes;
     }
 
-    @Etque("le restaurant contient une table de {string} places")
-    public void leRestaurantContientUneTableDePlaces(String capaciteDeLaTableInput) {
-        int capaciteDeLaTable = Integer.parseInt(capaciteDeLaTableInput);
+    @Etque("le restaurant contient une table de {int} places")
+    public void leRestaurantContientUneTableDePlaces(int capaciteDeLaTable) {
         ((InMemoryTableRepository) tableRepository).clear();
         tableRepository.save(new Table(capaciteDeLaTable));
     }
