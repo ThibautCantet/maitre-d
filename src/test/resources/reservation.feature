@@ -7,3 +7,10 @@ Fonctionnalité: Réserver une table pour un nombre de personnes donné et une d
     Et qu'il n'y a aucune réservation
     Quand on tente faire une réservation
     Alors la réservation est validée
+
+  Scénario: Réservation impossible car le nombre de personne est supérieur à la capacité de la table
+    Etant donné Une demande de réservation pour 13 personne(s)
+    Et que le restaurant contient une table de 12 places
+    Et qu'il n'y a aucune réservation
+    Quand on tente faire une réservation
+    Alors la réservation est refusée

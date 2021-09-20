@@ -7,6 +7,6 @@ public class MaitreD {
         if (table.verifierDisponibilite(nombreDePersonnesDansLaReservation)) {
             return new Accepted();
         }
-        return null;
+        return new Rejected();
     }
 }

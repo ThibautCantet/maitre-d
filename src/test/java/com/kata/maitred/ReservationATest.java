@@ -40,4 +40,10 @@ public class ReservationATest {
     public void laRéservationEstValidée() {
         assertThat(outcome).isEqualTo(new Accepted());
     }
+
+    @Alors("la réservation est refusée")
+    public void laRéservationEstRefusée() {
+        assertThat(outcome).isEqualTo(new Rejected());
+
+    }
 }
