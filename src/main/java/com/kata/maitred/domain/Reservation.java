@@ -1,4 +1,6 @@
 package com.kata.maitred.domain;
 
-public record Reservation() {
+import java.time.LocalDate;
+
+public record Reservation(int nombreDePersonnes, LocalDate dateDeReservation) {
 }

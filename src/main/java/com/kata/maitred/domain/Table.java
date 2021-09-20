@@ -6,7 +6,7 @@ public class Table {
     public Table (int capaciteDeLaTable) {
         this.capacite = capaciteDeLaTable;
     }
-    public boolean verifierDisponibilite(int nombreDePersonnesDansLaReservation) {
-        return capacite >= nombreDePersonnesDansLaReservation;
+    public boolean verifierDisponibilite(int nombreDePlacesDejaReservees, int nombreDePersonnesDansLaReservation) {
+        return capacite >= nombreDePlacesDejaReservees + nombreDePersonnesDansLaReservation;
     }
 }
