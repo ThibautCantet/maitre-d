@@ -1,4 +1,4 @@
 package com.kata.maitred.domain;
 
-public record Accepted() implements Outcome {
+public record Accepted(String reservationId) implements Outcome {
 }

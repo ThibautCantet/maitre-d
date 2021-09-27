@@ -18,9 +18,10 @@ public class Reserver {
         final Table table = tableRepository.find();
         final MaitreD maitreD = new MaitreD();
         final List<Reservation> reservations = reservationRepository.findByDate(reservationDate);
-        final Outcome event = maitreD.reserver(table, reservations, nombreDePersonnesDeLaReservation);
+        final String reservationId = reservationRepository.next();
+        final Outcome event = maitreD.reserver(reservationId, table, reservations, nombreDePersonnesDeLaReservation);
         if (event instanceof Accepted) {
-            reservationRepository.save(new Reservation(nombreDePersonnesDeLaReservation, reservationDate));
+            reservationRepository.save(new Reservation(reservationId, nombreDePersonnesDeLaReservation, reservationDate));
         }
         return event;
     }

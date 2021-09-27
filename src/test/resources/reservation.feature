@@ -27,7 +27,7 @@ Fonctionnalité: Réserver une table pour un nombre de personnes donné et une d
   Scénario: Réservation impossible car plus de place disponible pour la date donnée
     Etant donné Une demande de réservation pour 3 personne(s) pour le "2023-09-14"
     Et que le restaurant contient une table de 4 places
-    Et qu'il y a déjà une réservation de 2 places pour le "2023-09-14"
+    Et qu'il y a déjà une réservation de 3 places pour le "2023-09-14"
     Quand on tente faire une réservation
     Alors la réservation est refusée
     Et la réservation de 3 personne(s) pour "2023-09-14" n'est pas enregistrée

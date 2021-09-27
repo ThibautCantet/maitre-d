@@ -3,10 +3,10 @@ package com.kata.maitred.domain;
 import java.util.List;
 
 public class MaitreD {
-    public Outcome reserver(Table table, List<Reservation> reservations, int nombreDePersonnesDansLaReservation) {
+    public Outcome reserver(String reservationId, Table table, List<Reservation> reservations, int nombreDePersonnesDansLaReservation) {
         final Integer nombreDePlacesDejaReservees = calculerLeNombreDePlacesDejaReservees(reservations);
         if (table.verifierDisponibilite(nombreDePlacesDejaReservees, nombreDePersonnesDansLaReservation)) {
-            return new Accepted();
+            return new Accepted(reservationId);
         }
         return new Rejected();
     }
