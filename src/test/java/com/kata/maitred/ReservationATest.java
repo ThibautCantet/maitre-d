@@ -76,9 +76,13 @@ public class ReservationATest {
         LocalDate reservationDate = null;
         if (date.equals("aujourd'hui")) {
             reservationDate = LocalDate.now();
+        } else {
+            reservationDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         }
         final List<Reservation> reservations = reservationRepository.findByDate(reservationDate);
-        assertThat(reservations).containsExactly(new Reservation(reservationRepository.next(), nombreDePersonnes, reservationDate));
+        final Reservation nouvelleReservationAcceptee = new Reservation(((Accepted) outcome).reservationId(), nombreDePersonnes, reservationDate);
+        reservationsExistantes.add(nouvelleReservationAcceptee);
+        assertThat(reservations).isEqualTo(reservationsExistantes);
     }
 
     @Et("la réservation de {int} personne\\(s) pour {string} n'est pas enregistrée")
