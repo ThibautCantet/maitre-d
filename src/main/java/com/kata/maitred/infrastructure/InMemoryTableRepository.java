@@ -3,19 +3,20 @@ package com.kata.maitred.infrastructure;
 import com.kata.maitred.domain.Table;
 import com.kata.maitred.domain.TableRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InMemoryTableRepository implements TableRepository {
-    private Table table;
+    private final List<Table> tables = new ArrayList<>();
+
     @Override
     public void save(Table table) {
-        this.table = table;
+        this.tables.add(table);
     }
 
     @Override
-    public Table find() {
-        return table;
+    public List<Table> findAll() {
+        return tables;
     }
 
-    public void clear() {
-        this.table = null;
-    }
 }

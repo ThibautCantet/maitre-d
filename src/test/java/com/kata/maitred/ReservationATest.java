@@ -5,6 +5,7 @@ import com.kata.maitred.infrastructure.InMemoryReservationRepository;
 import com.kata.maitred.infrastructure.InMemoryTableRepository;
 import com.kata.maitred.use_case.Reserver;
 import io.cucumber.java.fr.*;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -39,7 +40,6 @@ public class ReservationATest {
 
     @Etque("le restaurant contient une table de {int} places")
     public void leRestaurantContientUneTableDePlaces(int capaciteDeLaTable) {
-        ((InMemoryTableRepository) tableRepository).clear();
         tableRepository.save(new Table(capaciteDeLaTable));
     }
 

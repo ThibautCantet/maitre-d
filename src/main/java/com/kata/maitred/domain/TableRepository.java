@@ -1,7 +1,9 @@
 package com.kata.maitred.domain;
 
+import java.util.List;
+
 public interface TableRepository {
     void save(Table table);
 
-    Table find();
+    List<Table> findAll();
 }

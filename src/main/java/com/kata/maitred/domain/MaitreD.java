@@ -3,12 +3,14 @@ package com.kata.maitred.domain;
 import java.util.List;
 
 public class MaitreD {
-    public Outcome reserver(String reservationId, Table table, List<Reservation> reservations, int nombreDePersonnesDansLaReservation) {
+    public Outcome reserver(String reservationId, List<Table> tables, List<Reservation> reservations, int nombreDePersonnesDansLaReservation) {
         final Integer nombreDePlacesDejaReservees = calculerLeNombreDePlacesDejaReservees(reservations);
-        if (table.verifierDisponibilite(nombreDePlacesDejaReservees, nombreDePersonnesDansLaReservation)) {
+        final boolean isTableDisponible = tables.stream().anyMatch(table -> table.verifierDisponibilite(nombreDePlacesDejaReservees, nombreDePersonnesDansLaReservation));
+        if (isTableDisponible) {
             return new Accepted(reservationId);
+        } else {
+            return new Rejected();
         }
-        return new Rejected();
     }
 
     private Integer calculerLeNombreDePlacesDejaReservees(List<Reservation> reservations) {
